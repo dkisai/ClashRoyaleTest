@@ -1,3 +1,4 @@
+from inspect import _void
 import os
 import json
 import requests
@@ -20,7 +21,7 @@ class ClashRoyale:
     
     def __init__(self, tag):
         self.tag = tag
-        self.my_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6Ijc0YTcwMGExLTU3OWYtNGUxNS1iZmRiLTA5YmNkYjA0YjYyYyIsImlhdCI6MTY0MzE0OTg0Miwic3ViIjoiZGV2ZWxvcGVyLzU4YTViNTllLTM3MGUtZmM0NC1mOGEyLWIwNjgyN2Q3NzhkYSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxODcuMTQwLjEuMjI0Il0sInR5cGUiOiJjbGllbnQifV19.AXcf5yyTf89JV6wYOgUJhZ1NwZMZVXXn6WzwS2NrEZWjAT1DDMUFxCZTxaJEqKwlhdV2hyhekgPYfGpF8xTKDQ'
+        self.my_token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzUxMiIsImtpZCI6IjI4YTMxOGY3LTAwMDAtYTFlYi03ZmExLTJjNzQzM2M2Y2NhNSJ9.eyJpc3MiOiJzdXBlcmNlbGwiLCJhdWQiOiJzdXBlcmNlbGw6Z2FtZWFwaSIsImp0aSI6ImI0MTVlMWU3LTEwOGUtNGZmNy05NGMyLTYwN2Q1OThiZjE5MSIsImlhdCI6MTY0MzIyNDI3MCwic3ViIjoiZGV2ZWxvcGVyLzU4YTViNTllLTM3MGUtZmM0NC1mOGEyLWIwNjgyN2Q3NzhkYSIsInNjb3BlcyI6WyJyb3lhbGUiXSwibGltaXRzIjpbeyJ0aWVyIjoiZGV2ZWxvcGVyL3NpbHZlciIsInR5cGUiOiJ0aHJvdHRsaW5nIn0seyJjaWRycyI6WyIxODcuMTQwLjcwLjEyMSJdLCJ0eXBlIjoiY2xpZW50In1dfQ.YDHst6jQyUApBD3tW2Y_11-TkR4FOKEv-N7RjVULJGdC8CZn_tfazsmf1MKFqWDemP1YIWXEFUkn2bUYpcrv6g'
 
 
     def getData(self, url):
@@ -56,8 +57,9 @@ class ClashRoyale:
         url = 'https://api.clashroyale.com/v1/players/' + '%23' + self.tag + '/upcomingchests'
         data = self.getData(url)
         for data['items'] in data['items']:
-            return f"En tu siguente cofre te saldra {(data['items']['name'])}"
-        #     print(f"Dentro de {(data['items']['index'])} cofres te saldra {(data['items']['name'])}")
+        #    return f"En tu siguente cofre te saldra {(data['items']['name'])}"
+            print(f"Dentro de {(data['items']['index'])} cofres te saldra {(data['items']['name'])}")
+        return " "
 
     
     def checkplayertag(self):
